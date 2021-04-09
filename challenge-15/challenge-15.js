@@ -22,7 +22,21 @@
     adicionados à idade original (age). Esse método deverá retornar o objeto
     que será instanciado.
   */
-  // ?
+  function Person(name, lastName, age){
+    this.name = name;
+    this.lastName = lastName;
+    this.age = age;
+    this.getFullName = function getFullName() {
+      return this.name + ' ' + this.lastName;
+    };
+    this.getAge = function getAge() {
+      return this.age;
+    };
+    this.addAge = function addAge() {
+      this.age += arguments[0];
+      return this;
+    };
+  }
 
   /*
   Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -31,20 +45,30 @@
   Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
   */
   console.log( 'Novas pessoas criadas à partir de Person:' );
-  // ?
+  const john = new Person('john', 'mello', 34);
+  const joao = new Person('joao', 'emilio', 70);
+  const maria = new Person('maria', 'maciel', 72);
+  console.log(john);
+  console.log(joao);
+  console.log(maria);
+
 
   /*
   Mostre no console o nome completo de cada pessoa.
   */
   console.log( '\nNomes das pessoas:' );
-  // ?
+  console.log(john.getFullName());
+  console.log(joao.getFullName());
+  console.log(maria.getFullName());
 
   /*
   Mostre no console as idades de cada pessoa, com a frase:
   - "[NOME COMPLETO] tem [IDADE] anos."
   */
   console.log( '\nIdade das pessoas:' );
-  // ?
+  console.log(john.getFullName() + ' tem ' + john.getAge() + ' anos.');
+  console.log(joao.getFullName() + ' tem ' + joao.getAge() + ' anos.');
+  console.log(maria.getFullName() + ' tem ' + maria.getAge() + ' anos.');
 
   /*
   Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
@@ -52,5 +76,7 @@
   - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
   */
   console.log( '\nNova idade das pessoas:' );
-  // ?
+  console.log(john.getFullName() + ' agora tem ' + john.addAge(2).getAge() + ' anos.');
+  console.log(joao.getFullName() + ' agora tem ' + joao.addAge(2).getAge() + ' anos.');
+  console.log(maria.getFullName() + ' agora tem ' + maria.addAge(2).getAge() + ' anos.');
 })();
